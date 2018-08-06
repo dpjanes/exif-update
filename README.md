@@ -11,6 +11,20 @@ Basic usage is like:
         --location glasgow \
         SAMPLE.jpg
 
+## Configuration
+
+You can store preset locations in a `.exif-update.yaml`
+or `~/.exif-update.yaml` file (or both). 
+
+It looks like this:
+
+    locations:
+    - name: glasgow
+      geo: 55.864237,-4.251806
+    - name: vienna
+      geo: 48.208174,16.373819
+
+
 ## Libraries
 
 Make sure the following are installed:
