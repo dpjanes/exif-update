@@ -104,9 +104,6 @@ if options.location:
             if l.get("name") == options.location:
                 break
         else:
-            l = None
-
-        if not l:
             help("location '%s' not found in database" % options.location)
 
         geo = l.get("geo")
