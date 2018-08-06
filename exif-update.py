@@ -11,6 +11,8 @@ import pprint
 import optparse
 import yaml
 import piexif
+import dateutil.parser
+import datetime
 
 ## define arguments
 parser = optparse.OptionParser()
@@ -116,12 +118,18 @@ if options.location:
 
         location = geo
 
-print location
-"""
-ls = configuration["locations"]
-ls = filter(lambda l: l.get("name"), ls)
-ls = dict(zip(map(lambda l: l.get("name"), ls), ls))
-configuration["locations"] = ls
+## parse the date
+date = None
 
-pprint.pprint(configuration)
-"""
+if options.date:
+    dt = dateutil.parser.parse(options.date)
+    if not dt:
+        help("date '%s could not be parsed" % options.date)
+
+    date = dt.strftime("%Y:%m:%d %H:%M:%S")
+
+print location, date
+
+## do the main work
+for photo in args:
+    pass
