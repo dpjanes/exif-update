@@ -157,8 +157,7 @@ def change_to_rational(number):
     f = fractions.Fraction(str(number))
     return (f.numerator, f.denominator)
 
-## do the main work
-for photo in args:
+def cook_photo(photo):
     exif = piexif.load(photo)
 
     if set_date:
@@ -192,3 +191,15 @@ for photo in args:
     print photo
     bytes = piexif.dump(exif)
     piexif.insert(bytes, photo)
+
+## do the main work
+for photo in args:
+    if os.path.isdir(photo):
+        subs = os.listdir(photo)
+        for sub in subs:
+            if os.path.splitext(sub)[1].lower() not in [ ".jpg" ]:
+                continue
+
+            cook_photo(os.path.join(photo, sub))
+    else:
+        cook_photo(photo)

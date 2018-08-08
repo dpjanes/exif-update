@@ -36,3 +36,4 @@ Make sure the following are installed:
 ## See Also
 
 * [LatLong.net](https://www.latlong.net/) - good for looking update Lat,Lon
+* [EXIF Info](https://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/GPS.html) - for developers
